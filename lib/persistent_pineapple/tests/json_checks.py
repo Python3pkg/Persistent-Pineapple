@@ -14,7 +14,7 @@ class SanityTest(unittest.TestCase):
         '''Verify container_to_ascii functionality'''
         self.assertEqual(container_to_ascii(int(4)), 4)
         if sys.version_info[0] == 2:
-            orig_list = ['test', unicode('test')]
+            orig_list = ['test', str('test')]
         else:
             orig_list = ['test', 'test']
         new_list = container_to_ascii(orig_list)

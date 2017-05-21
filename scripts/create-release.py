@@ -3,7 +3,7 @@
 This script is used to create the release package.
 """
 # Imports ######################################################################
-from __future__ import print_function
+
 import os
 import sys
 import shutil
@@ -37,7 +37,7 @@ def remove_directory(top, remove_top=True, filter=None):
         filter = lambda x: True
 
     for root, dirs, files in os.walk(top, topdown=False):
-        for name in [x for x in files if filter(x)]:
+        for name in [x for x in files if list(filter(x))]:
             os.remove(os.path.join(root, name))
 
         for name in dirs:

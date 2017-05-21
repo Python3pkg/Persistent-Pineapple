@@ -27,7 +27,7 @@ class CommentTest(unittest.TestCase):
         if sys.version_info < (2, 7):
             self.assertTrue(type(result) is str)
         elif sys.version_info < (3,):
-            self.assertIsInstance(result, basestring)
+            self.assertIsInstance(result, str)
         else:
             self.assertTrue(isinstance(result, str))
 
@@ -38,7 +38,7 @@ class CommentTest(unittest.TestCase):
         header = result.split("\n")[:2]
 
         if sys.version_info[0] == 3:
-            header = list(map(lambda x: bytes(x, 'UTF-8'), header))
+            header = list([bytes(x, 'UTF-8') for x in header])
 
         self.assertEqual(lines, header)
 
